@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Intro Tailwind</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+
+  <!-- NAVBAR -->
+  <nav class="bg-gray-900 text-white p-4">
+    <div class="max-w-6xl mx-auto flex justify-between items-center">
+      <h1 class="text-xl font-bold">WebCamp</h1>
+      <div class="space-x-6 hidden md:block">
+        <a href="#" class="hover:text-blue-400">Inicio</a>
+        <a href="#" class="hover:text-blue-400">Cursos</a>
+        <a href="#" class="hover:text-blue-400">Contacto</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="text-center py-20 bg-white">
+    <h2 class="text-4xl font-bold mb-4">Aprende Tailwind CSS</h2>
+    <p class="text-gray-600 mb-6">Construye interfaces modernas sin salir del HTML</p>
+    <button class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition">
+      Comenzar
+    </button>
+  </section>
+
+  <!-- CARDS -->
+  <section class="max-w-6xl mx-auto py-16 px-4">
+    <h3 class="text-2xl font-bold text-center mb-12">Cursos Destacados</h3>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      
+      <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition">
+        <h4 class="text-xl font-semibold mb-2">HTML</h4>
+        <p class="text-gray-600">Aprende desde cero.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition">
+        <h4 class="text-xl font-semibold mb-2">CSS</h4>
+        <p class="text-gray-600">Diseña interfaces modernas.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition">
+        <h4 class="text-xl font-semibold mb-2">JavaScript</h4>
+        <p class="text-gray-600">Interactividad profesional.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-gray-900 text-white text-center p-6">
+    © 2026 WebCamp - Todos los derechos reservados
+  </footer>
+
+</body>
+</html>
