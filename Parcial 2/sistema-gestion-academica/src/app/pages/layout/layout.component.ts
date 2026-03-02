@@ -1,11 +1,36 @@
-import { Component } from "@angular/core";
-import { CommonModule } from "@angular/common";
-import { RouterModule, RouterOutlet } from "@angular/router";
+import { Component, inject } from '@angular/core';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { AsyncPipe } from '@angular/common';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { MatIconModule } from '@angular/material/icon';
+import { Observable } from 'rxjs';
+import { map, shareReplay } from 'rxjs/operators';
+import { RouterLink, RouterOutlet } from "@angular/router";
 
 @Component({
-    standalone: true,
-    imports: [CommonModule, RouterModule, RouterOutlet],
-    template: './layout.component.html'
+  selector: 'app-layout',
+  templateUrl: './layout.component.html',
+  styleUrl: './layout.component.css',
+  imports: [
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatListModule,
+    MatIconModule,
+    AsyncPipe,
+    RouterLink,
+    RouterOutlet
+]
 })
+export class LayoutComponent {
+  private breakpointObserver = inject(BreakpointObserver);
 
-export class LayoutComponent{}
+  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
+    .pipe(
+      map(result => result.matches),
+      shareReplay()
+    );
+}
