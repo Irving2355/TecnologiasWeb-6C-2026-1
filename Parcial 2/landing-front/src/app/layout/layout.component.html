@@ -1,0 +1,43 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      mode = "over"
+      [opened]="false">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item href="#hero" (click)="drawer.close()">Inicio</a>
+      <a mat-list-item href="#" (click)="drawer.close()">Servicios 2</a>
+      <a mat-list-item href="#" (click)="drawer.close()">Info</a>
+      <a mat-list-item href="#" (click)="drawer.close()">Contacto</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary" class="topbar">
+      @if (isHandset$ | async) {
+        <button
+          type="button"
+          aria-label="Toggle sidenav"
+          matIconButton
+          (click)="drawer.toggle()">
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+      }
+      <span class="brand">Mi landing</span>
+
+      <span class="spacer"></span>
+
+      <nav class="nav-links">
+        <a href="#hero" mat-button>Inicio</a>
+        <a href="#servicios" mat-button>Servicios</a>
+        <a href="#info" mat-button>Info</a>
+        <a href="#contacto" mat-button>Contacto</a>
+      </nav>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <section id="hero" class="section hero">
+      <h1>Mi pagina de landing front</h1>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde magni deleniti non dicta eum aperiam accusamus quia ullam corporis odio?</p>
+      <button mat-raised-button color="accent">Ver contenido</button>
+    </section>
+  </mat-sidenav-content>
+</mat-sidenav-container>
