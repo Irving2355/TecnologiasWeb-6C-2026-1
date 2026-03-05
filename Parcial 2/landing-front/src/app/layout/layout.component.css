@@ -1,3 +1,35 @@
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.brand {font-weight: 700;}
+
+.nav-links{
+  display: flex;
+  gap: 8px;
+}
+
+.section{
+  max-width: 90%;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+.hero{
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+
+.grid-cards{
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 16px;
+  border-radius: 12px;
+  padding: 16px;
+}
+
 .sidenav-container {
   height: 100%;
 }
