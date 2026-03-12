@@ -1,0 +1,12 @@
+<div class="acciones">
+    <button (click)="toggleActiveFilter()">
+        {{showOnlyActive ? 'Mostrar todos': 'Mostrar solo activos'}}
+    </button>
+</div>
+
+<div *ngIf="filteredCourses.length > 0; else noCourses" class="grid-courses">
+    <div class="card-courses">
+        
+    </div>
+
+</div>
