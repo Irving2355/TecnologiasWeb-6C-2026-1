@@ -5,8 +5,35 @@
 </div>
 
 <div *ngIf="filteredCourses.length > 0; else noCourses" class="grid-courses">
-    <div class="card-courses">
+    <div class="card-courses"
+        *ngFor="let course of filteredCourses"
+        (click)="selectCourse(course)"
+        [ngClass]="{
+            'selected': selectedCourse?.id === course.id,
+            'inactive': !course.active
+        }"
+        [ngStyle]="{
+            'border-color': selectedCourse?.id == course.id ? '#1976d2': '#cccccc'
+        }">
+        <h3>{{course.name}}</h3>
+        <p><strong>Categoria: </strong> {{course.category}}</p>
+
+        <span *ngIf="course.active" class="badge-active">Activo</span>
+        <span *ngIf="!course.active" class="badge-inactive">Inactivo</span> 
         
     </div>
 
 </div>
+
+<ng-template #noCourses>
+    <p class="mensaje-vacio">No hay cursos disponibles</p>
+</ng-template>
+
+<hr>
+
+<app-course-detail
+    [course]="selectedCourse"
+    (notifyParent)="receiveMessage($event)"
+>
+</app-course-detail>
+

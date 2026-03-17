@@ -1,1 +1,14 @@
-<p>course-detail works!</p>
+<div *ngIf="course; else noSelection" class="detail-card">
+    <h2>Detalle del curso</h2>
+    <p><strong>Nombre: </strong>{{course.name}}</p>
+
+    <button (click)="sendMessage()">Inscribir</button>
+</div>
+
+<ng-template #noSelection>
+    <div class="card-detail empty">
+        <h2>Detalle del curso</h2>
+        <p>Selecciona un curso </p>
+    </div>
+</ng-template>
+
