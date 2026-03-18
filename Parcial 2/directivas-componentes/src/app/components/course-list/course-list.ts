@@ -34,7 +34,7 @@ export class CourseList {
   showOnlyActive: boolean = false;
 
   selectCourse(course: any){
-    this.selectCourse = course;
+    this.selectedCourse = course;
   }
 
   toggleActiveFilter(){
