@@ -19,6 +19,4 @@ export class Courses implements OnInit{
     this.courses = this.CourseSerivce.getCourses();
   }
 
-
-
 }
