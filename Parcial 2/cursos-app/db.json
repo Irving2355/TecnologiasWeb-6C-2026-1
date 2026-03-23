@@ -1,5 +1,5 @@
 {
-  "courses": [
+  "courses": [ 
     {"id": 1, "name": "React Fundamentals", "category": "Frontend", "duration": "40"},
     {"id": 2, "name": "Node.js REST APIs", "category": "Backend", "duration": "50"},
     {"id": 3, "name": "SQL Fundamentals", "category": "Database", "duration": "35"},

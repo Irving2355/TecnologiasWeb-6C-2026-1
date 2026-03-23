@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CourseSerivce } from '../../services/course';
 import { RouterLink } from "@angular/router";
@@ -13,10 +13,14 @@ import { RouterLink } from "@angular/router";
 export class Courses implements OnInit{
   courses: any[] = [];
 
-  constructor(private CourseSerivce: CourseSerivce){}
+  constructor(private CourseSerivce: CourseSerivce,private cd: ChangeDetectorRef){}
 
   ngOnInit(): void {
-    this.courses = this.CourseSerivce.getCourses();
+    //this.courses = this.CourseSerivce.getCourses();
+    this.CourseSerivce.getCourses().subscribe(data => {
+      this.courses = data;
+      this.cd.detectChanges();
+    });
   }
 
 }
