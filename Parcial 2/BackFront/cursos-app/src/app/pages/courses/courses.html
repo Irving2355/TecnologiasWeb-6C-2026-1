@@ -1,11 +1,12 @@
 <h2>Lista de curso</h2>
 
-<div *ngFor="let course of courses"
+<div *ngFor="let c of courses()"
     style="border: 1px solid #ccc; padding:  10px; margin-bottom: 10px;">
-    <h3>{{course.name}}</h3>
-    <p>Categoria: {{course.category}}</p>
-    <p>Duracion: {{course.duration}}</p>
+    <h3>{{c.name}}</h3>
+    <p>Categoria: {{c.category}}</p>
+    <p>Duracion: {{c.duration}}</p>
+    <p>Mode: {{c.mode}}</p>
 
-    <a [routerLink]="['/courses', course.id]">Ver detalle</a>
+    <a [routerLink]="['/courses', c.id]">Ver detalle</a>
 
 </div>

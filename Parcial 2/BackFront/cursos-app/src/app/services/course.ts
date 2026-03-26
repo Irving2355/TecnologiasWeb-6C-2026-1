@@ -14,4 +14,19 @@ export class CourseSerivce {
   getCourses(): Observable<any[]>{
     return this.http.get<any[]>(this.apiUrl)
   }
+
+  //observable para obtener curso por id
+  getCoursesById(id: number): Observable<any>{
+    return this.http.get<any>('${this.apiUrl}/${id}') 
+  }
+
+  //observable para agregar curso
+  createCourse(course: any): Observable<any>{
+    return this.http.post<any>(this.apiUrl, course)
+  }
+
+  //promesa
+  getCoursesPromise(): Promise<any[]>{
+    return fetch(this.apiUrl).then(res => res.json());
+  }
 }

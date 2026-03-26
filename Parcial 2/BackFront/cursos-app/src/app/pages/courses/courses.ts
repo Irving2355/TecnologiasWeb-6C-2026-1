@@ -1,4 +1,4 @@
-import { Component, OnInit,ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit,ChangeDetectorRef, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CourseSerivce } from '../../services/course';
 import { RouterLink } from "@angular/router";
@@ -11,16 +11,16 @@ import { RouterLink } from "@angular/router";
   styleUrl: './courses.css',
 })
 export class Courses implements OnInit{
-  courses: any[] = [];
+  //signlas para manejar el estado local reactivo
+  courses= signal<any[]>([])
 
   constructor(private CourseSerivce: CourseSerivce,private cd: ChangeDetectorRef){}
 
-  ngOnInit(): void {
-    //this.courses = this.CourseSerivce.getCourses();
-    this.CourseSerivce.getCourses().subscribe(data => {
-      this.courses = data;
-      this.cd.detectChanges();
-    });
+  ngOnInit(){
+    this.CourseSerivce.getCourses().subscribe(data =>{
+      this.courses.set(data)
+      this.cd.detectChanges()
+    })
   }
 
 }
