@@ -1,0 +1,10 @@
+<form [formGroup] = "from">
+    <input type="text" formControlName="name" placeholder="Nombre">
+    <input type="text" formControlName="category" placeholder="Nombre">
+    <input type="text" formControlName="mode" placeholder="Nombre">
+    <input type="text" formControlName="teacher" placeholder="Nombre">
+    <input type="text" formControlName="duration" placeholder="Nombre">
+    <input type="text" formControlName="description" placeholder="Nombre"> 
+
+    <button [disabled]="from.invalid">Guardar</button>
+</form>

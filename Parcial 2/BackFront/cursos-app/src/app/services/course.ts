@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CourseSerivce {
-  private apiUrl = 'http://localhost:3000/courses'
+  private apiUrl = 'http://localhost:3000/api/courses'
 
   constructor(private http: HttpClient){}
 
@@ -17,7 +17,7 @@ export class CourseSerivce {
 
   //observable para obtener curso por id
   getCoursesById(id: number): Observable<any>{
-    return this.http.get<any>('${this.apiUrl}/${id}') 
+    return this.http.get<any>(`${this.apiUrl}/${id}`) 
   }
 
   //observable para agregar curso
