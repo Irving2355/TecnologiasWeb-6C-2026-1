@@ -1,10 +1,16 @@
+import CronometroPanel from "./componentes/CronometroPanel"
+import EstadoConexion from "./componentes/EstadoConexion"
+import RelojPanel from "./componentes/RelojPanel"
 
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    
+    <div>
+      <RelojPanel/>
+      <CronometroPanel/>
+      <EstadoConexion/>
+    </div>
   )
 }
 
