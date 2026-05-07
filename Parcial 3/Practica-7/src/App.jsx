@@ -1,11 +1,10 @@
-import FormularioRegistro from "./componentes/FormularioRegistro"
-
+import PanelRegistro from "./componentes/PanelRegistro"
 
 function App() {
 
   return (
     <div>
-      <FormularioRegistro/>
+      <PanelRegistro/>
     </div>
   )
 }

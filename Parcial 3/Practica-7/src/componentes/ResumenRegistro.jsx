@@ -1,5 +1,5 @@
 
-function ResumenRegistro(datos) {
+function ResumenRegistro({datos}) {
   return (
     <div className="card shadow-sm mt-4">
         <div className="card-body">

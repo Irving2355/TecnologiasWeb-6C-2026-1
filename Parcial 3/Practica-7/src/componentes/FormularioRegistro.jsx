@@ -52,6 +52,7 @@ function FormularioRegistro({onRegistroCorrecto}) {
             })
         }
     }
+
   return (
     <form onSubmit={manejarEnvio} className="card shadow-sm">
         <div className="card-body">
@@ -62,7 +63,8 @@ function FormularioRegistro({onRegistroCorrecto}) {
                 <input type="text" 
                 className={`form-control ${errores.nombre ? 'is-invalid': ''}`}
                 value={nombre}
-                onChange={(e) => setNombre(e.target.value)}
+                onChange={(e) => setNombre(e.target.value)
+                }
                 />
                 {errores.nombre && (
                     <div className="invalid-feedback">{errores.nombre}</div>
@@ -78,6 +80,19 @@ function FormularioRegistro({onRegistroCorrecto}) {
                 />
                 {errores.carrera && (
                     <div className="invalid-feedback">{errores.carrera}</div>
+                )}
+            </div>
+
+            <div className="mb-3">
+                <label className="form-label">Correo electrónico</label>
+                <input
+                    type="email"
+                    className={`form-control ${errores.correo ? 'is-invalid' : ''}`}
+                    value={correo}
+                    onChange={(e) => setCorreo(e.target.value)}
+                />
+                {errores.correo && (
+                    <div className="invalid-feedback">{errores.correo}</div>
                 )}
             </div>
 
@@ -98,6 +113,22 @@ function FormularioRegistro({onRegistroCorrecto}) {
                 </select>
                 {errores.semestre && (
                     <div className="invalid-feedback">{errores.semestre}</div>
+                )}
+            </div>
+
+            <div className="form-check mb-3">
+                <input type="checkbox"
+                    className={`form-check-input ${errores.aceptaTerminos ? 'is-invalid' : ''}`}
+
+                    checked= {aceptaTerminos}
+                    onChange={(e)=> setTerminos(e.target.checked)}
+                    id="terminos"
+                />
+                <label className="form-check-label" htmlFor="terminos">Aceptar terminos</label>
+                {errores.aceptaTerminos && (
+                    <div className="text-danger small mt-1">
+                        {errores.aceptaTerminos}
+                    </div>
                 )}
             </div>
 
