@@ -1,3 +1,4 @@
+import { Link } from "react-router"
 
 function TarjetaPublicacion({publicacion}) {
   return (
@@ -6,7 +7,7 @@ function TarjetaPublicacion({publicacion}) {
 
         <p>{publicacion.body.substring(0,90)}</p>
 
-        <link to={`/publicaciones/${publicacion.id}`} >Ver detalle</link>
+        <Link to={`/publicaciones/${publicacion.id}`} >Ver detalle</Link>
     </article>
   )
 }
