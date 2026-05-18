@@ -1,5 +1,13 @@
+import { useFavoritos } from "../context/FavoritosContext"
 
 function TarjetaCurso({ curso }) {
+  const{
+    agregarFavoritos,
+    estaEnFavoritos
+  } = useFavoritos()
+
+  const favoritos = estaEnFavoritos(curso.id)
+
   return (
     <article className="tarjeta">
       <h2>{curso.nombre}</h2>
@@ -12,7 +20,7 @@ function TarjetaCurso({ curso }) {
         <strong>Duración:</strong> {curso.duracion}
       </p>
 
-      <button>
+      <button onClick={() => agregarFavoritos(curso)}>
         Agregar a favoritos
       </button>
     </article>

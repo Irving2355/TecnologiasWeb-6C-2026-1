@@ -1,6 +1,9 @@
 import { NavLink } from 'react-router'
+import { useFavoritos } from '../context/FavoritosContext'
 
 function Navbar() {
+  const {favoritos} = useFavoritos()
+
   const obtenerClase = ({ isActive }) => {
     return isActive ? 'activo' : ''
   }
@@ -17,7 +20,7 @@ function Navbar() {
 
       {/* En esta practica este enlace mostrara el contador global. */}
       <NavLink to="/favoritos" className={obtenerClase}>
-        Favoritos
+        Favoritos ({favoritos.length})
       </NavLink>
     </nav>
   )
