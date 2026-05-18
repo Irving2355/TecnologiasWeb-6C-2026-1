@@ -1,0 +1,73 @@
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f3f4f6;
+  color: #222;
+}
+
+.contenedor-principal {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.navbar {
+  display: flex;
+  gap: 10px;
+  padding: 16px 20px;
+  border-bottom: 1px solid #ddd;
+  background-color: #fff;
+}
+
+.navbar a {
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  color: #333;
+  background-color: #f1f1f1;
+}
+
+.navbar a.activo {
+  background-color: #222;
+  color: #fff;
+}
+
+.grid-cursos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.tarjeta {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 16px;
+  background-color: #fff;
+}
+
+.tarjeta h2 {
+  font-size: 1.2rem;
+  margin-top: 0;
+}
+
+button {
+  cursor: pointer;
+  padding: 8px 12px;
+  border: 1px solid #222;
+  border-radius: 6px;
+  background-color: #222;
+  color: #fff;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+.mensaje {
+  background-color: #fff;
+  border: 1px dashed #aaa;
+  border-radius: 10px;
+  padding: 18px;
+  margin-top: 16px;
+}
