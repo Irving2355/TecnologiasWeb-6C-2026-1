@@ -1,29 +1,12 @@
-import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
-import { obtenerCursoPorId } from '../services/cursosService'
-
+import useCursoDetalle from '../hooks/useCursoDetalle'
+import useTituloDocumento from '../hooks/useTituloDocumento'
 
 function DetalleCurso() {
   const { id } = useParams()
+  const { curso, cargando, error } = useCursoDetalle(id)
 
-  const [curso, setCurso] = useState(null)
-  const [cargando, setCargando] = useState(true)
-  const [error, setError] = useState(null)
-
-  useEffect(() => {
-    async function cargarCurso() {
-      try {
-        const datos = await obtenerCursoPorId(id)
-        setCurso(datos)
-      } catch (error) {
-        setError(error.message)
-      } finally {
-        setCargando(false)
-      }
-    }
-
-    cargarCurso()
-  }, [id])
+  useTituloDocumento(curso ? curso.nombre : 'Detalle del curso')
 
   if (cargando) {
     return <p className="cargando">Cargando detalle...</p>

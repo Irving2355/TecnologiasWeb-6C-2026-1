@@ -1,42 +1,23 @@
-import { useEffect, useState } from 'react'
-import { obtenerCursos } from '../services/cursosService'
 import FiltrosCursos from '../components/FiltrosCursos'
 import ListaCursos from '../components/ListaCursos'
+import useCursos from '../hooks/useCursos'
+import useFiltroCursos from '../hooks/useFiltroCursos'
+import useTituloDocumento from '../hooks/useTituloDocumento'
 
-
+// Ahora la página Cursos se concentra en armar la vista.
+// La carga de datos y el filtrado ya viven en custom hooks.
 function Cursos() {
-  const [cursos, setCursos] = useState([])
-  const [cargando, setCargando] = useState(true)
-  const [error, setError] = useState(null)
+  useTituloDocumento('Cursos disponibles')
 
-  const [busqueda, setBusqueda] = useState('')
-  const [areaSeleccionada, setAreaSeleccionada] = useState('Todas')
+  const { cursos, cargando, error } = useCursos()
 
-  useEffect(() => {
-    async function cargarCursos() {
-      try {
-        const datos = await obtenerCursos()
-        setCursos(datos)
-      } catch (error) {
-        setError(error.message)
-      } finally {
-        setCargando(false)
-      }
-    }
-
-    cargarCursos()
-  }, [])
-
-  const cursosFiltrados = cursos.filter((curso) => {
-    const coincideBusqueda = curso.nombre
-      .toLowerCase()
-      .includes(busqueda.toLowerCase())
-
-    const coincideArea =
-      areaSeleccionada === 'Todas' || curso.area === areaSeleccionada
-
-    return coincideBusqueda && coincideArea
-  })
+  const {
+    busqueda,
+    areaSeleccionada,
+    setBusqueda,
+    setAreaSeleccionada,
+    cursosFiltrados
+  } = useFiltroCursos(cursos)
 
   if (cargando) {
     return <p className="cargando">Cargando cursos...</p>
@@ -51,8 +32,8 @@ function Cursos() {
       <h1>Cursos disponibles</h1>
 
       <p>
-        Esta versión funciona, pero mezcla carga de datos,
-        filtros e interfaz en la misma página.
+        En esta versión la lógica de carga y filtrado fue separada
+        en custom hooks.
       </p>
 
       <FiltrosCursos
